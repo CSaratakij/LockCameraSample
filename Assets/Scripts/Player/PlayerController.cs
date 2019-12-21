@@ -59,6 +59,11 @@ public class PlayerController : MonoBehaviour
         moveDirection.x = inputVector.x;
         moveDirection.z = inputVector.y;
 
+        if (moveDirection.magnitude > 1.0f)
+        {
+            moveDirection = moveDirection.normalized;
+        }
+
         velocity = moveDirection * moveSpeed;
         velocity.y -= gravity * Time.deltaTime;
 
